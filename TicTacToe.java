@@ -12,7 +12,8 @@ public class TicTacToe {
 	
 	public static void main(String[] args) {	
 		
-		String ans;
+		String ans = null;
+		boolean toContinue = true;
 		
 		do {
 		
@@ -26,24 +27,35 @@ public class TicTacToe {
 			
 			player2 = name.nextLine();
 			
-			System.out.println(player1 + " you are O. You go second.");	
+			System.out.println(player2 + " you are O. You go second.");	
 			
 		clearBoard();	
 		play();
+			
+		while(toContinue == true) {
 		
-		System.out.println("Do you want to play again? Enter y/n: ");
-			
-			ans = answer.nextLine().toLowerCase();
-			
-			if(ans.equals("n")) {
-				
-				System.out.println("That is the end of the game. Bye Bye!");
-				
-			}else if(ans.equals("y")) {
-				
-				System.out.println("New game\n");
-				
-			}
+			System.out.println("Do you want to play again? Enter y/n: ");
+
+				ans = answer.nextLine().toLowerCase();
+
+				if(ans.equals("n")) {
+
+					System.out.println("That is the end of the game. Bye Bye!");
+					toContinue = false;
+
+				}else if(ans.equals("y")) {
+
+					System.out.println("New game\n");
+					currentPlayer = 'X';
+					toContinue = false;
+
+				}else { 
+						
+					System.out.println("Please enter only 'y' or 'n'.");
+					System.out.println();
+						
+				}
+		}
 		
 		}while(ans.equals("y"));
 		
